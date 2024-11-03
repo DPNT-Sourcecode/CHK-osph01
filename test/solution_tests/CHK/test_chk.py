@@ -50,7 +50,8 @@ class TestHello():
         assert checkout_solution.checkout("FFF") == 20
 
     def test_checkout8(self):
-        assert checkout_solution.checkout("KK") == 150
+        assert checkout_solution.checkout("KK") == 120
+        assert checkout_solution.checkout("KKKKK") == 310
 
     def test_checkout9(self):
         assert checkout_solution.checkout("PPPPP") == 200
@@ -71,4 +72,5 @@ class TestHello():
         assert checkout_solution.checkout("VVVV") == 180
         assert checkout_solution.checkout("VVV") == 130
         assert checkout_solution.checkout("VV") == 90
+
 
