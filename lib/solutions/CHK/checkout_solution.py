@@ -48,13 +48,31 @@ def apply_bonus_offers(item, num_item, sku_map):
         ## Make sure if 2 Es are bought but no Bs are that we don't give store credit
         sku_map["B"] = max(sku_map["B"] - num_bs_rem, 0)
 
+    ## If we have Ns in the basket then we can take away Ms
+    if item == "N" and "M" in sku_map:
+        ## For each 3 Ns we can take a B
+        num_bs_rem = num_item // 2
+        ## Make sure if 2 Es are bought but no Bs are that we don't give store credit
+        sku_map["B"] = max(sku_map["B"] - num_bs_rem, 0)
+
 def sku_ordering(sku_map):
-    ## Allow us to test Es first so that we can remove Bs before their prices are added
     sku_keys = list(sku_map.keys())
+    
+    ## Allow us to test Es first so that we can remove Bs before their prices are added
     if "E" in sku_keys:
         sku_keys.remove("E")
         sku_keys.insert(0, "E")
-    
+
+    ## Allow us to test Ns first so that we can remove Ms before their prices are added    
+    if "N" in sku_keys:
+        sku_keys.remove("N")
+        sku_keys.insert(0, "N")
+
+    ## Allow us to test Rs first so that we can remove Qs before their prices are added
+    if "R" in sku_keys:
+        sku_keys.remove("R")
+        sku_keys.insert(0, "R")
+
     return sku_keys
 
 def convert_skus_to_map(skus):
@@ -95,4 +113,5 @@ def checkout(skus):
         price += num_item * item_price
 
     return price
+
 
