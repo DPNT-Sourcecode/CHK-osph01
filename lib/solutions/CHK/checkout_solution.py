@@ -22,7 +22,7 @@ def apply_bonus_offers(item, num_item, sku_map):
 
 def sku_ordering(sku_map):
     ## Allow us to test Es first so that we can remove Bs before their prices are added
-    sku_keys = sku_map.keys
+    sku_keys = list(sku_map.keys())
     if "E" in sku_keys:
         sku_keys.remove("E")
         sku_keys.insert(0, "E")
@@ -67,7 +67,3 @@ def checkout(skus):
         price += num_item * item_price
 
     return price
-
-
-
-
