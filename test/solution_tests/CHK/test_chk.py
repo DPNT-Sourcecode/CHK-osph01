@@ -73,4 +73,14 @@ class TestHello():
         assert checkout_solution.checkout("VVV") == 130
         assert checkout_solution.checkout("VV") == 90
 
+    def test_checkout14(self):
+        assert checkout_solution.checkout("SSS") == 45
+        assert checkout_solution.checkout("TTT") == 45
+        assert checkout_solution.checkout("XXX") == 45
+        assert checkout_solution.checkout("YYY") == 45
+        assert checkout_solution.checkout("ZZZ") == 45
+        assert checkout_solution.checkout("ZYX") == 45
+        assert checkout_solution.checkout("TSZ") == 45
+        assert checkout_solution.checkout("YXS") == 45
+
 

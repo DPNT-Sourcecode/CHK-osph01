@@ -44,9 +44,14 @@ def apply_group_offers(sku_map):
     ## Group1: (S, T, X, Y, Z)
     num_s, num_t, num_x, num_y, num_z = sku_map["S"], sku_map["T"], sku_map["X"], sku_map["Y"], sku_map["Z"]
     group1_total = num_s + num_t = num_x + num_y + num_z # sku_map["S"] + sku_map["T"] + sku_map["X"] + sku_map["Y"] + sku_map["Z"]
+    
+    additional_price = 0
+    
     if group1_total >= 3:
         num_group1s = group1_total // 3
-        
+        for item in ["X", "Y", "S", "T", "Z"]
+
+    return additional_price
 
 def apply_bonus_offers(item, num_item, sku_map):
     ## If we have Es in the basket then we can take away Bs
@@ -102,7 +107,7 @@ def convert_skus_to_map(skus):
 # skus = unicode string
 def checkout(skus):
     sku_map = convert_skus_to_map(skus)
-    price = 0
+    price = apply_group_offers(sku_map)
     
     ## Iterate through each item type bought
     for item in sku_ordering(sku_map):
