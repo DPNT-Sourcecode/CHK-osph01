@@ -40,6 +40,9 @@ BUNDLE_OFFERS = {
     "V": [(3, 130), (2, 90)] 
 }
 
+# def apply_group_offers(sku_map):
+    
+
 def apply_bonus_offers(item, num_item, sku_map):
     ## If we have Es in the basket then we can take away Bs
     if item == "E" and "B" in sku_map:
@@ -120,3 +123,4 @@ def checkout(skus):
         price += num_item * item_price
 
     return price
+

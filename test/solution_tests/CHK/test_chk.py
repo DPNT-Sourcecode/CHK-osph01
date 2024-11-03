@@ -3,7 +3,32 @@ from solutions.CHK import checkout_solution
 
 class TestHello():
     def test_checkout1(self):
-        assert checkout_solution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == 965
+        assert checkout_solution.checkout("A") == 50
+        assert checkout_solution.checkout("B") == 30
+        assert checkout_solution.checkout("C") == 20
+        assert checkout_solution.checkout("D") == 15
+        assert checkout_solution.checkout("E") == 40
+        assert checkout_solution.checkout("F") == 10
+        assert checkout_solution.checkout("G") == 20
+        assert checkout_solution.checkout("H") == 10
+        assert checkout_solution.checkout("I") == 35
+        assert checkout_solution.checkout("J") == 60
+        assert checkout_solution.checkout("K") == 70
+        assert checkout_solution.checkout("L") == 90
+        assert checkout_solution.checkout("M") == 15
+        assert checkout_solution.checkout("N") == 40
+        assert checkout_solution.checkout("O") == 10
+        assert checkout_solution.checkout("P") == 50
+        assert checkout_solution.checkout("Q") == 30
+        assert checkout_solution.checkout("R") == 50
+        assert checkout_solution.checkout("S") == 20
+        assert checkout_solution.checkout("T") == 20
+        assert checkout_solution.checkout("U") == 40
+        assert checkout_solution.checkout("V") == 50
+        assert checkout_solution.checkout("W") == 20
+        assert checkout_solution.checkout("X") == 17
+        assert checkout_solution.checkout("Y") == 20
+        assert checkout_solution.checkout("Z") == 21
 
     def test_checkout2(self):
         assert checkout_solution.checkout("AAAAA") == 200
@@ -46,3 +71,4 @@ class TestHello():
         assert checkout_solution.checkout("VVVV") == 180
         assert checkout_solution.checkout("VVV") == 130
         assert checkout_solution.checkout("VV") == 90
+
