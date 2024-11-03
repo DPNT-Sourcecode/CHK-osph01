@@ -85,5 +85,6 @@ class TestHello():
 
     def test_checkout15(self):
         assert checkout_solution.checkout("STYXZ") == 82
+        assert checkout_solution.checkout("STYXZX") == 90
 
 

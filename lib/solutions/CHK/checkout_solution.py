@@ -42,8 +42,12 @@ BUNDLE_OFFERS = {
 
 def apply_group_offers(sku_map):
     ## Group1: (S, T, X, Y, Z)
-    num_s, num_t, num_x, num_y, num_z = sku_map["S"], sku_map["T"], sku_map["X"], sku_map["Y"], sku_map["Z"]
-    group1_total = num_s + num_t = num_x + num_y + num_z # sku_map["S"] + sku_map["T"] + sku_map["X"] + sku_map["Y"] + sku_map["Z"]
+    num_s = sku_map.get("S", 0)
+    num_t = sku_map.get("T", 0)
+    num_t = sku_map.get("X", 0)
+
+    num_s, num_t, num_x, num_y, num_z = , sku_map.get("T", 0), sku_map["X"], sku_map["Y"], sku_map["Z"]
+    group1_total = num_s + num_t + num_x + num_y + num_z # sku_map["S"] + sku_map["T"] + sku_map["X"] + sku_map["Y"] + sku_map["Z"]
     
     additional_price = 0
     
@@ -54,7 +58,27 @@ def apply_group_offers(sku_map):
         if num_z > 0:
             num_to_take = min(num_z, group1_total)
             group1_total -= num_to_take
-            sku_map[Z] -= num_to_take
+            sku_map["Z"] -= num_to_take
+
+        if num_y > 0:
+            num_to_take = min(num_y, group1_total)
+            group1_total -= num_to_take
+            sku_map["Y"] -= num_to_take
+
+        if num_s > 0:
+            num_to_take = min(num_s, group1_total)
+            group1_total -= num_to_take
+            sku_map["S"] -= num_to_take
+
+        if num_t > 0:
+            num_to_take = min(num_t, group1_total)
+            group1_total -= num_to_take
+            sku_map["T"] -= num_to_take
+
+        if num_x > 0:
+            num_to_take = min(num_x, group1_total)
+            group1_total -= num_to_take
+            sku_map["X"] -= num_to_take
 
     return additional_price
 
