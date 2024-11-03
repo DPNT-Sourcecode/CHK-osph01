@@ -3,7 +3,7 @@ from solutions.CHK import checkout_solution
 
 class TestHello():
     def test_checkout1(self):
-        assert checkout_solution.checkout("ABCDE") == 155
+        assert checkout_solution.checkout("ABCDEF") == 165
 
     def test_checkout2(self):
         assert checkout_solution.checkout("AAAAA") == 200
@@ -19,3 +19,7 @@ class TestHello():
 
     def test_checkout6(self):
         assert checkout_solution.checkout("EEBBBA") == 175
+
+    def test_checkout7(self):
+        assert checkout_solution.checkout("FF") == 20
+        assert checkout_solution.checkout("FFF") == 20

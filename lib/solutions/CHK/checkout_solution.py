@@ -4,12 +4,14 @@ PRICES = {
     "B": 30,
     "C": 20,
     "D": 15,
-    "E": 40
+    "E": 40,
+    "F": 10
 }
 
 BUNDLE_OFFERS = {
     "A": [(5, 200), (3, 130)],
-    "B": [(2, 45)]
+    "B": [(2, 45)],
+    "F": [(3, 20)]
 }
 
 def apply_bonus_offers(item, num_item, sku_map):
