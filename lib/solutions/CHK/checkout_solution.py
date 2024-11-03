@@ -49,7 +49,12 @@ def apply_group_offers(sku_map):
     
     if group1_total >= 3:
         num_group1s = group1_total // 3
-        for item in ["X", "Y", "S", "T", "Z"]
+        ## Order Z, Y, S, T, X so that expensive is taken off first, as that favours the customer
+        
+        if num_z > 0:
+            num_to_take = min(num_z, group1_total)
+            group1_total -= num_to_take
+            sku_map[Z] -= num_to_take
 
     return additional_price
 
