@@ -17,13 +17,6 @@ def convert_skus_to_useful(skus):
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    ## TODO: find out format of skus input
-    ##       turn into map of items needed
-    ##       if any unknown items then return -1
-    ##       (suspected stock check in next few rounds)
-    ##       have knowledge of prices
-    ##       use map of sales to work out total price (divmod)
-
     sku_map = convert_skus_to_useful(skus)
     price = 0
     
@@ -39,7 +32,8 @@ def checkout(skus):
         if offer:
             bundle_num, new_price = offer
             num_offer_claimed, num_item = divmod(num_item, bundle_num)
-            
+            price += num_offer_claimed * new_price
+
+        price += num_item * price
 
     return price
-
