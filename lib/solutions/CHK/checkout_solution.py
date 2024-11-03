@@ -47,16 +47,16 @@ def apply_group_offers(sku_map):
     num_x = sku_map.get("X", 0)
     num_y = sku_map.get("Y", 0)
     num_z = sku_map.get("Z", 0)
-    
-    print(f"PRE SKU MAP {sku_map}")
-    print(f"S {num_s} T {num_t} X {num_x} Y {num_y} Z {num_z}")
 
-    group1_total = num_s + num_t + num_x + num_y + num_z # sku_map["S"] + sku_map["T"] + sku_map["X"] + sku_map["Y"] + sku_map["Z"]
-    print(f"Group1 total {group1_total}")
+    group1_total = num_s + num_t + num_x + num_y + num_z
     additional_price = 0
     
     if group1_total >= 3:
-        num_group1s = group1_total // 3
+        ## Number of group1s is the amount of times the offer applies
+        ## Remaining group1s are to be take off the total amount to leave us with the amount accounted for by offers
+        num_group1s, remaining_group1s = divmod(group1_total, 3)
+        group1_total -= remaining_group1s
+
         additional_price = num_group1s * 45
         ## Order Z, Y, S, T, X so that expensive is taken off first, as that favours the customer
         
@@ -84,9 +84,6 @@ def apply_group_offers(sku_map):
             num_to_take = min(num_x, group1_total)
             group1_total -= num_to_take
             sku_map["X"] -= num_to_take
-
-    print(f"Additional price {additional_price}")
-    print(f"POST SKU MAP {sku_map}")
 
     return additional_price
 
