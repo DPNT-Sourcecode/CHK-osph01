@@ -12,7 +12,12 @@ OFFERS = {
 }
 
 def convert_skus_to_useful(skus):
-    {}
+    out = {}
+
+    for item in skus:
+        out[item] = out.get(item, 0) + 1
+
+    return out
 
 # noinspection PyUnusedLocal
 # skus = unicode string
