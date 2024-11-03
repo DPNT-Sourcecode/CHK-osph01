@@ -12,6 +12,13 @@ BUNDLE_OFFERS = {
     "B": [(2, 45)]
 }
 
+def apply_bonus_offers(item, num_item, sku_map):
+    ## If we have Es in the basket then we can take away Bs
+    if item == "E" and "B" in sku_map:
+        ## For each 2 Es we can take a B
+        num_bs_rem = num_item // 2
+        sku_map["B"] = max(sku_map["B"] - num_bs_rem, 0)
+
 def sku_ordering(sku_map):
     keys = sku_map.keys
     if "E" in keys:
@@ -40,6 +47,8 @@ def checkout(skus):
         if not item_price:
             return -1
 
+        apply_bonus_offers(item, num_item, sku_map)
+
         offers = BUNDLE_OFFERS.get(item)
 
         if offers:
@@ -51,5 +60,6 @@ def checkout(skus):
         price += num_item * item_price
 
     return price
+
 
 
