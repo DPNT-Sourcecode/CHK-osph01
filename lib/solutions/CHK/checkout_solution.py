@@ -17,17 +17,19 @@ def apply_bonus_offers(item, num_item, sku_map):
     if item == "E" and "B" in sku_map:
         ## For each 2 Es we can take a B
         num_bs_rem = num_item // 2
+        ## Make sure if 2 Es are bought but no Bs are that we don't give store credit
         sku_map["B"] = max(sku_map["B"] - num_bs_rem, 0)
 
 def sku_ordering(sku_map):
-    keys = sku_map.keys
-    if "E" in keys:
-        keys.remove("E")
-        keys.insert(0, "E")
+    ## Allow us to test Es first so that we can remove Bs before their prices are added
+    sku_keys = sku_map.keys
+    if "E" in sku_keys:
+        sku_keys.remove("E")
+        sku_keys.insert(0, "E")
     
-    return keys
+    return sku_keys
 
-def convert_skus_to_useful(skus):
+def convert_skus_to_map(skus):
     out = {}
 
     for item in skus:
@@ -38,12 +40,15 @@ def convert_skus_to_useful(skus):
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    sku_map = convert_skus_to_useful(skus)
+    sku_map = convert_skus_to_map(skus)
     price = 0
     
+    ## Iterate through each item type bought
     for item in sku_ordering(sku_map):
         num_item = sku_map[item]
         item_price = PRICES.get(item)
+
+        ## If we don't recognise an item then return -1
         if not item_price:
             return -1
 
@@ -51,6 +56,8 @@ def checkout(skus):
 
         offers = BUNDLE_OFFERS.get(item)
 
+        ## If we have bundle offers then for each offer check if it applies
+        ## and then apply it
         if offers:
             for offer in offers:
                 bundle_num, new_price = offer
@@ -60,6 +67,7 @@ def checkout(skus):
         price += num_item * item_price
 
     return price
+
 
 
 
