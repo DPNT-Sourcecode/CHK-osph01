@@ -120,5 +120,3 @@ def checkout(skus):
         price += num_item * item_price
 
     return price
-
-

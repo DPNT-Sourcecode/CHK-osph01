@@ -28,8 +28,21 @@ class TestHello():
         assert checkout_solution.checkout("KK") == 150
 
     def test_checkout9(self):
-        assert checkout_solution.checkout("PPPPP") == 250
+        assert checkout_solution.checkout("PPPPP") == 200
         assert checkout_solution.checkout("PPPPPP") == 250
 
     def test_checkout10(self):
-        assert checkout_solution.checkout("PPPPPP") == 250
+        assert checkout_solution.checkout("QQQ") == 80
+        assert checkout_solution.checkout("QQQQ") == 110
+
+    def test_checkout11(self):
+        assert checkout_solution.checkout("QQQQRRR") == 230
+
+    def test_checkout12(self):
+        assert checkout_solution.checkout("UUUU") == 120
+        assert checkout_solution.checkout("UUUUU") == 160
+
+    def test_checkout13(self):
+        assert checkout_solution.checkout("VVVV") == 180
+        assert checkout_solution.checkout("VVV") == 130
+        assert checkout_solution.checkout("VV") == 90
