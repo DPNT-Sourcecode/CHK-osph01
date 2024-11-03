@@ -3,12 +3,14 @@ PRICES = {
     "A": 50,
     "B": 30,
     "C": 20,
-    "D": 15
+    "D": 15,
+    "E": 40
 }
 
 OFFERS = {
     "A": (3, 130),
-    "B": (2, 45)
+    "B": (2, 45),
+    "E": 
 }
 
 def convert_skus_to_useful(skus):
@@ -41,3 +43,4 @@ def checkout(skus):
         price += num_item * item_price
 
     return price
+

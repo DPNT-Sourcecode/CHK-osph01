@@ -4,3 +4,13 @@ from solutions.CHK import checkout_solution
 class TestHello():
     def test_checkout1(self):
         assert checkout_solution.checkout("ABCD") == 115
+
+    def test_checkout2(self):
+        assert checkout_solution.checkout("AAAAA") == 200
+
+    def test_checkout3(self):
+        assert checkout_solution.checkout("AAA") == 130
+
+    def test_checkout3(self):
+        assert checkout_solution.checkout("AAAAAAAA") == 130
+
