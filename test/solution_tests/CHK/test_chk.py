@@ -23,3 +23,13 @@ class TestHello():
     def test_checkout7(self):
         assert checkout_solution.checkout("FF") == 20
         assert checkout_solution.checkout("FFF") == 20
+
+    def test_checkout8(self):
+        assert checkout_solution.checkout("KK") == 150
+
+    def test_checkout9(self):
+        assert checkout_solution.checkout("PPPPP") == 250
+        assert checkout_solution.checkout("PPPPPP") == 250
+
+    def test_checkout10(self):
+        assert checkout_solution.checkout("PPPPPP") == 250

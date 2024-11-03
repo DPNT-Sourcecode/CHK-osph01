@@ -50,10 +50,17 @@ def apply_bonus_offers(item, num_item, sku_map):
 
     ## If we have Ns in the basket then we can take away Ms
     if item == "N" and "M" in sku_map:
-        ## For each 3 Ns we can take a B
-        num_bs_rem = num_item // 2
-        ## Make sure if 2 Es are bought but no Bs are that we don't give store credit
-        sku_map["B"] = max(sku_map["B"] - num_bs_rem, 0)
+        ## For each 3 Ns we can take a M
+        num_ms_rem = num_item // 3
+        ## Make sure if 3 Ns are bought but no Ms are that we don't give store credit
+        sku_map["M"] = max(sku_map["M"] - num_ms_rem, 0)
+    
+    ## If we have Rs in the basket then we can take away Qs
+    if item == "R" and "Q" in sku_map:
+        ## For each 3 Rs we can take a Q
+        num_qs_rem = num_item // 3
+        ## Make sure if 3 Rs are bought but no Qs are that we don't give store credit
+        sku_map["Q"] = max(sku_map["Q"] - num_qs_rem, 0)
 
 def sku_ordering(sku_map):
     sku_keys = list(sku_map.keys())
