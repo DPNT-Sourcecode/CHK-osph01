@@ -12,5 +12,3 @@ class TestSum():
     def test_sum3(self):
         assert sum_solution.sum(100, 0) == 100
         assert sum_solution.sum(0, 100) == 100
-
-
