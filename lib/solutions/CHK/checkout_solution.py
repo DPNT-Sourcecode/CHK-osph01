@@ -32,7 +32,12 @@ BUNDLE_OFFERS = {
     "A": [(5, 200), (3, 130)],
     "B": [(2, 45)],
     "F": [(3, 20)],
-    
+    "H": [(10, 80), (5, 45)],
+    "K": [(2, 150)],
+    "P": [(5, 200)],
+    "Q": [(3, 80)],
+    "U": [(4, 120)],
+    "V": [(3, 130), (2, 90)] 
 }
 
 def apply_bonus_offers(item, num_item, sku_map):
@@ -90,3 +95,4 @@ def checkout(skus):
         price += num_item * item_price
 
     return price
+
