@@ -7,10 +7,9 @@ PRICES = {
     "E": 40
 }
 
-OFFERS = {
-    "A": (3, 130),
-    "B": (2, 45),
-    "E": 
+BUNDLE_OFFERS = {
+    "A": [(5, 200), (3, 130)],
+    "B": [(2, 45)]
 }
 
 def convert_skus_to_useful(skus):
